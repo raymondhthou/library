@@ -10,10 +10,10 @@
     <div class="container">
         <div class="header">
             <h1>Library</h1>
-            <button>Add New Book</button>
+            <button id="addBookButton">Add New Book</button>
         </div>
         <div class="formContainer">
-            <form action="">
+            <form id="displayBookForm" style="display: none;">
                 <label for="title">Title:</label>
                 <input type="text" id="title" name="title">
                 <label for="author">Author:</label>
@@ -22,8 +22,10 @@
                 <input type="text" id="pages" name="pages">
                 <label for="read">Read:</label>
                 <input type="checkbox" id="read" name="read">
+                <button type="submit" id="submit" name="submit">Submit</button>
             </form>
         </div>
+        <div class="libraryCard"></div>
     </div>
     <script src="main.js"></script>
 </body>

@@ -1,4 +1,4 @@
-const myLibrary = []
+const myLibrary = [];
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -13,4 +13,37 @@ function addBookToLibrary() {
     let pages = document.querySelector("#pages").value;
     let read = document.querySelector("#read").checked;
     let newBook = new Book(title, author, pages, read);
+    myLibrary.push(newBook);
+    console.log(newBook);
 }
+
+function updateLibrary() {
+    let library = document.querySelector("#libraryCard");
+    library.innerHTML = "";
+    for (let i = 0; i < myLibrary.length; i++) {
+        let book = myLibrary[i];
+        let bookCardDiv = document.createElement("div");
+        bookCardDiv.setAttribute("class", "bookCard");
+        bookCardDiv.innerHTML = `
+            <div class="cardHeader">
+                <h3 class="title">${book.title}</h3>
+                <h5 class="author">by ${book.author}</h5>
+            </div>
+            <div class="cardBody">
+                <p>${book.pages} pages</p>
+                <p class="statusRead">${book.read ? "Read" : "Unread"}</p>
+        `;
+    }
+}
+
+// When clicked, book form will display to enter book details for library 
+let addBook = document.querySelector("#addBookButton");
+addBook.addEventListener("click", function() {
+    let bookForm = document.querySelector("#displayBookForm");
+    bookForm.style.display = "block";
+})
+
+document.querySelector("#displayBookForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    addBookToLibrary();
+})
