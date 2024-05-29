@@ -14,6 +14,7 @@ function addBookToLibrary() {
     let read = document.querySelector("#read").checked;
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
+    updateLibrary();
     console.log(newBook);
 }
 
@@ -32,8 +33,16 @@ function updateLibrary() {
             <div class="cardBody">
                 <p>${book.pages} pages</p>
                 <p class="statusRead">${book.read ? "Read" : "Unread"}</p>
+                <button class"removeButton" onclick="remove(${i})">Remove</button>
+            </div>
         `;
+        library.appendChild(bookCardDiv);
     }
+}
+
+function remove(index) {
+    myLibrary.splice(index, 1);
+    updateLibrary();
 }
 
 // When clicked, book form will display to enter book details for library 
