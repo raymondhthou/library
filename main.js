@@ -1,5 +1,6 @@
 const myLibrary = [];
 
+// object constructor
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -7,6 +8,19 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+
+// Toggles the status for read or unread
+Book.prototype.toggleRead = function() {
+    this.read = !this.read;
+}
+
+function toggleRead(index) {
+    myLibrary[index].toggleRead();
+    updateLibrary();
+}
+
+
+// Book constructor values will be pushed into the variable array of myLibrary[]
 function addBookToLibrary() {
     let title = document.querySelector("#title").value;
     let author = document.querySelector("#author").value;
@@ -18,6 +32,8 @@ function addBookToLibrary() {
     console.log(newBook);
 }
 
+
+// This function will update and render when both adding or removing books each time
 function updateLibrary() {
     let library = document.querySelector("#libraryCard");
     library.innerHTML = "";
@@ -34,16 +50,20 @@ function updateLibrary() {
                 <p>${book.pages} pages</p>
                 <p class="statusRead">${book.read ? "Read" : "Unread"}</p>
                 <button class"removeButton" onclick="remove(${i})">Remove</button>
+                <button class"toggleButton" onclick="toggleRead(${i})">Toggle Read</button>
             </div>
         `;
         library.appendChild(bookCardDiv);
     }
 }
 
+
+// remove books in the library
 function remove(index) {
     myLibrary.splice(index, 1);
     updateLibrary();
 }
+
 
 // When clicked, book form will display to enter book details for library 
 let addBook = document.querySelector("#addBookButton");
