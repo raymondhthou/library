@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    background-color: lightgray;
+    grid-template-rows: 0.1fr;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 0.2fr;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2 / 3;
+    align-self: center;
+    justify-self: center;
+    margin-top: 1rem;
+}
+
+.formContainer {
+    grid-column: 2 / 3;
+    align-self: center;
+    justify-self: center;
+    min-height: 50%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#libraryCard {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(auto-fit, 1fr);
+    gap: 2rem;
+}
+
+.bookCard {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    max-height: 200px;
+    grid-auto-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fit, 1fr);
+    border: 1px solid black;
+    padding: 1rem;
+}
