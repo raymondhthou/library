@@ -49,8 +49,8 @@ function updateLibrary() {
             <div class="cardBody">
                 <p>${book.pages} pages</p>
                 <p class="statusRead">${book.read ? "Read" : "Unread"}</p>
-                <button class"removeButton" onclick="remove(${i})">Remove</button>
-                <button class"toggleButton" onclick="toggleRead(${i})">Toggle Read</button>
+                <button class="cardButton" onclick="remove(${i})">Remove</button>
+                <button class="cardButton" onclick="toggleRead(${i})">Toggle Read</button>
             </div>
         `;
         library.appendChild(bookCardDiv);
